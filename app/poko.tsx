@@ -295,6 +295,7 @@ export default function Poko() {
   function widget(isFloating = false) {
     const widgetReward = isFloating ? reward : null;
     const countdown = focus?.starts_at !== null && focus?.starts_at !== undefined && focus.status !== "active" && now ? countdownLabel(focus.starts_at, now) : null;
+    const lateStart = focus?.status === "active" && focus.starts_at !== null && focus.starts_at !== undefined && now > focus.starts_at;
     return <div className="widget">
       <div className="widget-top"><div className="widget-brand"><SunMedium /> Poko <span className="text-muted">/ focus</span></div><div className="row" style={{ gap: 3 }}>
         {isFloating ? <span className={`sync-label ${syncError ? "offline" : ""}`} title={syncError || "Tasks saved"}>{syncError ? <CloudOff /> : <CloudCheck />}</span> : <button className="icon-button" onClick={floatWidget} aria-label="Open floating task widget"><ArrowUpRight /></button>}
@@ -303,6 +304,7 @@ export default function Poko() {
         <span className="widget-kicker">{focus?.status === "active" ? "In your flow" : focus ? "Your next little step" : "A little room to focus"}</span>
         <h3 className="widget-task">{loading ? "Getting your tasks…" : syncError && !tasks.length ? "Let’s reconnect" : focus?.title || "What’s your first small step?"}</h3>
           <div className={`widget-time ${countdown ? `countdown-${countdown.tone}` : ""}`}><Clock3 /><span>{focus ? focus.starts_at !== null ? `${focus.task_date !== today ? shortDate(focus.task_date) + " · " : ""}${timeLabel(focus.starts_at)}${countdown ? ` · ${countdown.label}` : ""}` : focus.task_date === today ? "Any time today" : shortDate(focus.task_date) + " · Any time" : "One task at a time."}</span></div>
+        {lateStart && <div className="late-start" role="status"><span className="late-sparkle">✦</span><span>A little late, still showing up.</span><span className="late-sparkle">✦</span></div>}
         {isFloating && actionError && <div className="error-banner" role="alert" style={{ marginTop: 10 }}>{actionError}</div>}
         {isFloating && currentReminder && <div className="reminder-card"><span>Time to start</span><strong>{currentReminder.title}</strong><button className="quiet" disabled={!!busy} onClick={() => changeStatus(currentReminder, "active")}>Start now <Play /></button><button className="quiet" onClick={() => snooze(currentReminder)}>10 min later</button></div>}
         {isFloating && focusTasks.length > 1 && <div className="widget-mini-list">{focusTasks.slice(1, 5).map(t => <div className="widget-mini-row" key={t.id}><Checkbox className="task-check" checked={false} disabled={!!busy} aria-label={`Complete ${t.title}`} onCheckedChange={() => changeStatus(t, "completed")} /><span>{t.title}</span>{t.starts_at !== null && <small>{timeLabel(t.starts_at)}</small>}</div>)}</div>}

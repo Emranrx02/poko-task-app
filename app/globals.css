@@ -1,4 +1,5 @@
 .widget-time{display:flex;align-items:center;gap:6px;color:#64818a;font-size:13px}.widget-time svg{width:14px;height:14px}.widget-time.countdown-safe{color:#27805f}.widget-time.countdown-warning{color:#b27628}.widget-time.countdown-danger{color:#b44848;font-weight:650}.widget-actions{display:flex;gap:8px;margin-top:19px}
+.late-start{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:14px;padding:9px 10px;border:1px solid #e9bd8d99;border-radius:11px;background:#fff2df99;color:#a36a35;font-size:12px;font-weight:650;animation:late-pulse 2.4s ease-in-out infinite}.late-sparkle{color:#d5974f;animation:late-sparkle 1.8s ease-in-out infinite}.late-sparkle:last-child{animation-delay:.3s}@keyframes late-pulse{0%,100%{box-shadow:0 0 0 #e9bd8d00;transform:translateY(0)}50%{box-shadow:0 5px 18px #e9bd8d40;transform:translateY(-1px)}}@keyframes late-sparkle{0%,100%{opacity:.45;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(12deg)}}
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
@@ -26,6 +27,7 @@ html[data-theme="dark"] .tab-count{background:#23414a;color:#b5d2d6}
 html[data-theme="dark"] .task-check{background:#10262f;border-color:#57747e!important}
 html[data-theme="dark"] .widget{background:linear-gradient(135deg,#17323cdd,#102a31d9);border-color:#79949b38;box-shadow:0 20px 60px #020b0e70,inset 0 1px 0 #ffffff16}
 html[data-theme="dark"] .widget-time.countdown-safe{color:#76d3a7}html[data-theme="dark"] .widget-time.countdown-warning{color:#f0bd68}html[data-theme="dark"] .widget-time.countdown-danger{color:#ff8d8d}
+html[data-theme="dark"] .late-start{background:#4a3524aa;border-color:#bd875766;color:#ffd19b}html[data-theme="dark"] .late-sparkle{color:#f0b86c}
 html[data-theme="dark"] .progress-ring .track{stroke:#25434b}html[data-theme="dark"] .progress-ring .fill{stroke:#61c5c5}
 html[data-theme="dark"] .glass-dialog{background:linear-gradient(140deg,#18323cf7,#0f252ef7)!important;border-color:#68868d4d!important;color:#e5f4f4}
 html[data-theme="dark"] .field{color:#cce3e5}html[data-theme="dark"] .field input,html[data-theme="dark"] .field textarea{background:#0e222bcc;border-color:#3d5a63;color:#edfafa}
