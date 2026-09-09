@@ -22,9 +22,9 @@ function timeLabel(value: number) { return new Date(value).toLocaleTimeString([]
 function countdownLabel(startsAt: number, currentTime: number) {
   const minutes = Math.ceil((startsAt - currentTime) / 60000);
   if (minutes <= 0) return { label: "Started", tone: "danger" };
-  if (minutes < 60) return { label: `Starts in ${minutes} min`, tone: minutes <= 5 ? "danger" : minutes <= 10 ? "warning" : "safe" };
+  if (minutes < 60) return { label: `${minutes} min left`, tone: minutes <= 5 ? "danger" : minutes <= 10 ? "warning" : "safe" };
   const hours = Math.floor(minutes / 60), remainder = minutes % 60;
-  return { label: `Starts in ${hours}h${remainder ? ` ${remainder}m` : ""}`, tone: "safe" };
+  return { label: `${hours}h${remainder ? ` ${remainder}m` : ""} left`, tone: "safe" };
 }
 function shortDate(value: string) { return new Date(value + "T12:00:00").toLocaleDateString("en", { month: "short", day: "numeric" }); }
 function monday(value: string) { const day = new Date(value + "T12:00:00").getDay(); return shiftDate(value, -((day + 6) % 7)); }
