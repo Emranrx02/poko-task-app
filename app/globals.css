@@ -1,3 +1,4 @@
+.widget-time{display:flex;align-items:center;gap:6px;color:#64818a;font-size:13px}.widget-time svg{width:14px;height:14px}.widget-time.countdown-safe{color:#27805f}.widget-time.countdown-warning{color:#b27628}.widget-time.countdown-danger{color:#b44848;font-weight:650}.widget-actions{display:flex;gap:8px;margin-top:19px}
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
@@ -24,6 +25,7 @@ html[data-theme="dark"] .task-row,html[data-theme="dark"] .task-tabs [data-slot=
 html[data-theme="dark"] .tab-count{background:#23414a;color:#b5d2d6}
 html[data-theme="dark"] .task-check{background:#10262f;border-color:#57747e!important}
 html[data-theme="dark"] .widget{background:linear-gradient(135deg,#17323cdd,#102a31d9);border-color:#79949b38;box-shadow:0 20px 60px #020b0e70,inset 0 1px 0 #ffffff16}
+html[data-theme="dark"] .widget-time.countdown-safe{color:#76d3a7}html[data-theme="dark"] .widget-time.countdown-warning{color:#f0bd68}html[data-theme="dark"] .widget-time.countdown-danger{color:#ff8d8d}
 html[data-theme="dark"] .progress-ring .track{stroke:#25434b}html[data-theme="dark"] .progress-ring .fill{stroke:#61c5c5}
 html[data-theme="dark"] .glass-dialog{background:linear-gradient(140deg,#18323cf7,#0f252ef7)!important;border-color:#68868d4d!important;color:#e5f4f4}
 html[data-theme="dark"] .field{color:#cce3e5}html[data-theme="dark"] .field input,html[data-theme="dark"] .field textarea{background:#0e222bcc;border-color:#3d5a63;color:#edfafa}
